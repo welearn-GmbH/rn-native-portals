@@ -1,16 +1,19 @@
 {
   "name": "rn-native-portals",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Native side portals for React Native",
   "main": "index.js",
-  "homepage": "https://github.com/imamark/rn-native-portals#readme",
+  "homepage": "https://github.com/lightrow/rn-native-portals#readme",
   "keywords": [
     "react-native"
   ],
   "author": "Marvin Frachet <marvin.frachet@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "^0.63.4"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39"
   },
   "dependencies": {
     "prop-types": "^15.6.2"
