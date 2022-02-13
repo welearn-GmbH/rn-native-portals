@@ -1,10 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**This project is not under active development. Feel free to fork it, to take inspiration, create a copy or anything that make you feel productive.**
-
-[Here's the story _why_ we've built this library](https://t.co/QVGbfGuLG3)
-
-React Native implementation of [ReactDOM portals](https://reactjs.org/docs/portals.html) using a declarative API.
+Somewhat maintained fork of https://github.com/mfrachet/rn-native-portals
 
 This library makes possible the _teleportation_ of views from a place to another one.
 
@@ -20,9 +16,13 @@ This library makes possible the _teleportation_ of views from a place to another
 ### Installation
 
 ```
-$ yarn add mfrachet/rn-native-portals
-$ react-native link
+$ yarn add lightrow/rn-native-portals
 ```
+or
+```
+$ npm install lightrow/rn-native-portals
+```
+This will install this library directly from GitHub
 
 ### In your code
 
@@ -31,10 +31,14 @@ Somewhere high in your component tree, add a `PortalDestination` (a portal desti
 ```javascript
 import {  PortalDestination } from "rn-native-portals";
 
-render() {
+export default function App() {
 	return (
-		<PortalDestination name="targetOfTeleportation" />
-	);
+		<View>
+			<StatusBar style="dark" />
+			<AppNavigator />
+			<PortalDestination name="fullscreenVideo" />
+		</View>
+    	);
 }
 ```
 
@@ -43,22 +47,22 @@ Somewhere else in the tree, add a `PortalOrigin` (a portal origin):
 ```javascript
 import { PortalOrigin } from 'rn-native-portals';
 
-render() {
+export default function VideoPlayerSizeHandler() {
+	const [isPortalOpen, openPortal] = useState(false);
+	...
 	return (
-		<PortalOrigin destination={ this.state.shouldMove ? 'targetOfTeleportation' : null }>
-			<View>
-				<Text>Hello world</Text>
-			</View>
-		</PortalOrigin>
-	);
+		<View style={[...]}>
+			<StatusBar hidden={isPortalOpen} />
+			<PortalOrigin destination={isPortalOpen ? 'fullscreenVideo' : null}>
+				<Animated.View style={[...]}>{children}</Animated.View>
+			</PortalOrigin>
+		</View>
+    	);
 }
 ```
-
-When the `shouldMove` state will change to something truthy, the `View` and the `Text` components will be moved inside the `PortalDestination` component set
+When the `isPortalOpen` state will change to something truthy, the Animated.View will be moved inside the `PortalDestination` component set
 previously.
 
-If the value of the `destination` prop is set to `null`, the `View` and `Text` are restituted to their original place.
+If the value of the `destination` prop is set to `null`, the Animated.View will return back to original place.
 
 ---
-
-Built with ❤️ at [M6 Web](http://tech.m6web.fr/)

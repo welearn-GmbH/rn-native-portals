@@ -8,4 +8,5 @@ extension PortalView where Self: UIView {
     destination.subviews.forEach({ $0.removeFromSuperview() })
     subviews.forEach({ destination.addSubview($0) })
   }
+
 }

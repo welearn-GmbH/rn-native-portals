@@ -36,6 +36,7 @@ class PortalOrigin: UIView, PortalView {
     self.registry = registry
     destination = ""
     super.init(frame: CGRect.zero)
+    isUserInteractionEnabled = true
   }
   
   required init?(coder aDecoder: NSCoder) {

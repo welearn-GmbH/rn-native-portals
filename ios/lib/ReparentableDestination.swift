@@ -35,6 +35,14 @@ class PortalDestination: UIView, PortalView {
     name = ""
     lastOrigin = nil
     super.init(frame: CGRect.zero)
+    isUserInteractionEnabled = true
+  }
+
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+      if lastOrigin != nil {
+          return true
+      }
+      return false
   }
   
   required init?(coder aDecoder: NSCoder) {
