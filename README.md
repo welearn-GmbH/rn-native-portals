@@ -2,7 +2,7 @@
 
 Somewhat maintained fork of https://github.com/mfrachet/rn-native-portals
 
-This library makes possible the _teleportation_ of views from a place to another one.
+This library makes possible the _teleportation_ ( or _reparenting_ like in https://github.com/Paol-imi/react-reparenting ) of components without losing their internal state. Common use case - seamlessly extracting a custom video player nested deeply in components tree to the top to display it in fullscreen.
 
 ---
 
