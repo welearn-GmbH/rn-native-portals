@@ -8,10 +8,11 @@ class PortalOrigin: UIView, PortalView {
   
   @objc var destination: NSString {
     willSet(newDestination) {
-      restituteIfNeeded(destinationName: newDestination)
+      restituteIfNeeded(destinationName: newDestination as NSString?)
       registry.remove(origin: self)
     }
     didSet {
+      destination = destination as NSString? ?? ""
       registry.put(origin: self)
       move()
     }
@@ -24,8 +25,8 @@ class PortalOrigin: UIView, PortalView {
     }
   }
 
-  func restituteIfNeeded(destinationName: NSString) {
-    if (destinationName == "" && lastDestination?.lastOrigin == self) {
+  func restituteIfNeeded(destinationName: NSString?) {
+    if ((destinationName == nil || destinationName == "") && lastDestination?.lastOrigin == self) {
       lastDestination?.restitute()
     }
   }
