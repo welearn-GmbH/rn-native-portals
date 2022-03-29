@@ -16,7 +16,14 @@ class PortalOrigin: UIView, PortalView {
       move()
     }
   }
-  
+
+  override func didMoveToWindow() {
+    super.didMoveToWindow()
+    if (self.window == nil) {
+      registry.remove(origin: self)
+    }
+  }
+
   func restituteIfNeeded(destinationName: NSString) {
     if (destinationName == "" && lastDestination?.lastOrigin == self) {
       lastDestination?.restitute()
