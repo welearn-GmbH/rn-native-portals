@@ -3,11 +3,11 @@
     "version": "1.0.0",
     "description": "Native side portals for React Native",
     "main": "index.js",
-    "homepage": "https://github.com/lightrow/rn-native-portals#readme",
+    "homepage": "https://github.com/welearn-GmbH/rn-native-portals#readme",
     "keywords": [
         "react-native"
     ],
-    "author": "Marvin Frachet <marvin.frachet@gmail.com>",
+    "author": "Marvin Frachet <marvin.frachet@gmail.com>, welearn GmbH <ivan.gromov@welearncompany.com>",
     "license": "MIT",
     "peerDependencies": {
         "react-native": "*"
