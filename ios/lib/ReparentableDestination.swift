@@ -39,10 +39,10 @@ class PortalDestination: UIView, PortalView {
   }
 
   override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-      if lastOrigin != nil {
-          return true
-      }
-      return false
+    return subviews.contains(where: {
+      !$0.isHidden
+      && $0.isUserInteractionEnabled
+    })
   }
   
   required init?(coder aDecoder: NSCoder) {
