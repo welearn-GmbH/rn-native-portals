@@ -21,6 +21,7 @@ class PortalOrigin: UIView, PortalView {
   override func didMoveToWindow() {
     super.didMoveToWindow()
     if (self.window == nil) {
+      destination = ""
       registry.remove(origin: self)
     }
   }
